@@ -1,1 +1,1 @@
-# bakefoundry-platform-documentation
+# BakeFoundry Platform Documentation
