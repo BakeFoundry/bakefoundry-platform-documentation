@@ -20,9 +20,9 @@ Establish a robust **Continuous Integration and Continuous Deployment (CI/CD)** 
 
 ## Pipeline Workflow
 1.  **Commit & Trigger**: Code pushed to GitHub triggers the CI pipeline via webhooks.
-2.  **Build & Validation**: The application is compiled, and unit tests are executed. Successful builds produce versioned artifacts.
-3.  **AMI Baking**: Packer spins up a temporary instance, installs the application artifact and dependencies, and creates a Golden AMI.
-4.  **Infrastructure Provisioning**: Terraform updates the infrastructure configuration (Launch Templates) to reference the new AMI ID.
+2.  **Build & Validation**: The application is compiled, and unit tests are executed. Successful builds produce versioned artifacts which are uploaded to the specific Artifactory repository.
+3.  **AMI Baking**: Packer spins up a temporary instance using the latest base AMI, fetches the application artifact from Artifactory, installs dependencies, and creates a Golden AMI.
+4.  **Infrastructure Provisioning**: Terraform updates the infrastructure configuration (Launch Templates) to use the new Golden AMI and triggers the creation of new instances.
 5.  **Blue-Green Deployment**: A new auto-scaling group (Green) is launched with the new AMI.
 6.  **Traffic Switch**: Load balancer traffic is gradually shifted to the Green environment after health checks pass.
 7.  **Termination**: The old environment (Blue) is terminated once the deployment is stabilized.
