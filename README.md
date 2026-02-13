@@ -44,4 +44,15 @@ graph TD
     L -->|No| M[Rollback / Notify]
     L -->|Yes| N[Shift Traffic to Green]
     N --> O[Terminate Blue ASG]
+
+    %% Styling
+    classDef condition fill:#ffecb3,stroke:#ff6f00,stroke-width:2px;
+    classDef success fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px;
+    classDef failure fill:#ffcdd2,stroke:#c62828,stroke-width:2px;
+    classDef standard fill:#e3f2fd,stroke:#1565c0,stroke-width:2px;
+
+    class C,L condition;
+    class E,F,G,H,I,J,K,N,O success;
+    class D,M failure;
+    class A,B standard;
 ```
