@@ -26,3 +26,22 @@ Establish a robust **Continuous Integration and Continuous Deployment (CI/CD)** 
 5.  **Blue-Green Deployment**: A new auto-scaling group (Green) is launched with the new AMI.
 6.  **Traffic Switch**: Load balancer traffic is gradually shifted to the Green environment after health checks pass.
 7.  **Termination**: The old environment (Blue) is terminated once the deployment is stabilized.
+
+```mermaid
+graph TD
+    A[User Pushes Code] -->|Webhook| B(CI Pipeline Triggered)
+    B --> C{Build & Unit Tests}
+    C -->|Failure| D[Notify Dev]
+    C -->|Success| E[Upload Artifact to Artifactory]
+    E --> F[Packer Starts AMI Baking]
+    F -->|Fetch Base AMI| G[AWS Marketplace]
+    F -->|Fetch Artifact| E
+    F --> H[Install Dependencies & Deploy App]
+    H --> I[Create Golden AMI]
+    I --> J[Terraform Updates Launch Template]
+    J --> K[Provision Green ASG]
+    K --> L{Health Checks Pass?}
+    L -->|No| M[Rollback / Notify]
+    L -->|Yes| N[Shift Traffic to Green]
+    N --> O[Terminate Blue ASG]
+```
