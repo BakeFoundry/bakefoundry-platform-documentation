@@ -2,13 +2,6 @@
 ## Project Overview
 Establish a robust **Continuous Integration and Continuous Deployment (CI/CD)** pipeline tailored for legacy applications.
 
-## Key Objectives
-- **Modernization**: Transition from manual, error-prone deployment processes to automated, consistent workflows.
-- **Reliability**: Ensure reproducible builds and deployments, reducing the risk of human error.
-- **Quality Assurance**: Integrate automated testing and code quality checks to maintain high standards.
-- **Efficiency**: Accelerate the release cycle, enabling faster time-to-market for critical updates and features.
-- **Auditability**: Maintain comprehensive logs and tracking for all changes and deployments to meet compliance requirements.
-
 ## Technical Functionalities
 - **Pipeline Orchestration**: Event-driven workflow execution (e.g., Push, PR merge) to automate the software delivery lifecycle.
 - **Immutable Infrastructure (AMI Baking)**: Automated creation of Golden AMIs (Amazon Machine Images) with pre-configured dependencies and application code.
@@ -17,6 +10,13 @@ Establish a robust **Continuous Integration and Continuous Deployment (CI/CD)** 
 - **Secrets Management**: Secure, encrypted handling of credentials and API keys using distinct vault solutions or native repository secrets.
 - **Infrastructure as Code (IaC)**: Automated provisioning and configuration management of deployment servers using tools like Terraform or Ansible.
 - **Artifact Versioning**: Semantic versioning and storage of compilation outputs in a centralized artifact repository.
+
+## Strategic Objectives
+- **Modernization**: Transition from manual, error-prone deployment processes to automated, consistent workflows.
+- **Reliability**: Ensure reproducible builds and deployments, reducing the risk of human error.
+- **Quality Assurance**: Integrate automated testing and code quality checks to maintain high standards.
+- **Efficiency**: Accelerate the release cycle, enabling faster time-to-market for critical updates and features.
+- **Auditability**: Maintain comprehensive logs and tracking for all changes and deployments to meet compliance requirements.
 
 ## Pipeline Workflow
 1.  **Commit & Trigger**: Code pushed to GitHub triggers the CI pipeline via webhooks.
