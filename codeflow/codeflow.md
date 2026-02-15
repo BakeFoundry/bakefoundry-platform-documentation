@@ -16,3 +16,13 @@ This repository will be used as a template by all developers who will create pyt
 ## Workflow Template Calls
 
 Following core workflows will be called from this template.
+
+Developer will create a new repository by using this template based on technology choice. Templates are available for the below technologies.
+
+| Technology Name | Repository Template Link |
+| :--- | :--- |
+| Python | https://github.com/BakeFoundry/bk-python-template.git |
+| Java | TBD |
+| .Net | TBD |
+
+
