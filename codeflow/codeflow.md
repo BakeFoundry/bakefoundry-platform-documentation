@@ -12,7 +12,7 @@ By adopting a unified CI/CD process, we eliminate configuration drift, enforce s
 | Secret Scanning | Scans code for hardcoded secrets, tokens, and keys to prevent credential leaks. | Gitleaks |
 | Code Quality Check | Analyzes source code for stylistic errors, bugs, and programming standard violations. | Pylint, Flake8 |
 | Vulnerability Check | Identifies known security vulnerabilities in application dependencies. | Snyk |
-| AMI Baking | Automated creation of immutable Amazon Machine Images with pre-configured dependencies. | Packer |
+| AMI Baking | Automated creation of Application Golden AMI using the base Golden AMI from Marketplace. | Packer |
 | AMI Scanning | Scans the generated AMI for operating system and package vulnerabilities. | Amazon Inspector |
 
 ## Workflow Template Calls
@@ -36,7 +36,7 @@ Following are the core workflows that will be called from this template irrespec
 | Secret Scanning | Scans code for hardcoded secrets, tokens, and keys to prevent credential leaks. |
 | Code Quality Check | Analyzes source code for stylistic errors, bugs, and programming standard violations. |
 | Vulnerability Check | Identifies known security vulnerabilities in application dependencies. |
-| AMI Baking | Automated creation of immutable Amazon Machine Images with pre-configured dependencies. |
+| AMI Baking | Automated creation of Application Golden AMI using the base Golden AMI from Marketplace. |
 | AMI Scanning | Scans the generated AMI for operating system and package vulnerabilities. |
 
 ## Application Code Workflow
@@ -52,7 +52,7 @@ graph TD
     D -->|Fail| Z
     E -->|Success| F{AMI Scanning}
     E -->|Fail| Z
-    F -->|Pass| G[Golden AMI Created]
+    F -->|Pass| G[Application Golden AMI Created]
     F -->|Fail| Z
 
     %% Styling
